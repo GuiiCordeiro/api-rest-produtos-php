@@ -1,0 +1,129 @@
+
+@baseUrl = http://localhost/api-produtos
+
+### 1. GET - Listar todos os produtos
+GET {{baseUrl}}/produtos
+
+### 2. GET - Buscar produto existente
+GET {{baseUrl}}/produtos/1
+
+### 3. GET - Buscar produto inexistente
+GET {{baseUrl}}/produtos/999999
+
+### 4. POST - Cadastrar produto válido
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "nome": "Cadeira",
+    "preco": 1200,
+    "estoque": 10
+}
+
+### 5. POST - Nome vazio
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "nome": "",
+    "preco": 1200,
+    "estoque": 10
+}
+
+### 6. POST - Preço negativo
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "nome": "Mouse",
+    "preco": -50,
+    "estoque": 10
+}
+
+### 7. POST - Estoque negativo
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "nome": "Teclado",
+    "preco": 150,
+    "estoque": -5
+}
+
+### 8. POST - Estoque com tipo incorreto
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "nome": "Teclado",
+    "preco": 150,
+    "estoque": "10"
+}
+
+### 9. POST - Campo obrigatório ausente
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "nome": "Monitor",
+    "preco": 900
+}
+
+### 10. POST - Nome com mais de 100 caracteres
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "nome": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "preco": 150,
+    "estoque": 10
+}
+
+### 11. POST - JSON inválido
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "nome": "Cadeira",
+    "preco": 1200,
+    "estoque": 10,
+}
+
+### 12. PUT - Atualizar produto existente
+PUT {{baseUrl}}/produtos/4
+Content-Type: application/json
+
+{
+    "nome": "Cadeira",
+    "preco": 700.50,
+    "estoque": 8
+}
+
+### 13. PUT - Preço negativo
+PUT {{baseUrl}}/produtos/1
+Content-Type: application/json
+
+{
+    "nome": "Mouse Gamer",
+    "preco": -150.90,
+    "estoque": 20
+}
+
+### 14. PUT - Produto inexistente
+PUT {{baseUrl}}/produtos/999999
+Content-Type: application/json
+
+{
+    "nome": "Mouse Gamer",
+    "preco": 150.90,
+    "estoque": 20
+}
+
+### 15. DELETE - Excluir produto existente
+DELETE {{baseUrl}}/produtos/3
+
+### 16. DELETE - Excluir produto inexistente
+DELETE {{baseUrl}}/produtos/999999
+
+### 17. GET - Rota inexistente
+GET {{baseUrl}}/rota-inexistente

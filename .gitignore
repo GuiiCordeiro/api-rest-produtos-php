@@ -1,0 +1,15 @@
+# Configurações locais e informações sensíveis
+.env
+.env.*
+!.env.example
+
+# Arquivos temporários e logs
+*.log
+*.tmp
+
+# Configurações locais de editores
+.vscode/
+.idea/
+
+# Dependências, caso sejam adicionadas futuramente
+/vendor/
